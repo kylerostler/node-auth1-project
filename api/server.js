@@ -31,7 +31,13 @@ server.use(session({
     createtable: true,
     clearInterval: 1000 * 60 * 10,
     tablename: 'sessions',
-  })
+    sidfieldname: 'sid',
+  }),
+  cookie: {
+    maxAge: 1000 * 60 * 10,
+    secure: false,
+    httpOnly: true,
+  }
 }))
 server.use(helmet());
 server.use(express.json());
